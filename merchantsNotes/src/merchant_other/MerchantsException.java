@@ -1,4 +1,4 @@
-package merchantsNotes;
+package merchant_other;
 
 public class MerchantsException extends Exception {
 	/**

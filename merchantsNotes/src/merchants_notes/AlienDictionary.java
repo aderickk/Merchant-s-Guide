@@ -1,6 +1,9 @@
-package merchantsNotes;
+package merchants_notes;
 
 import java.util.HashMap;
+
+import merchant_other.MerchantsException;
+import merchant_other.RomanCharacterEnum;
 
 public class AlienDictionary {
 
@@ -15,7 +18,11 @@ public class AlienDictionary {
 		
 		String[] inputArray = input.split(" ");
 		
-		if (inputArray.length != 3) throw new MerchantsException();
+		if (inputArray.length != 3 
+				|| inputArray[2].length() > 1 
+				|| !RomanCharacterEnum.isRomanCharacter(inputArray[2].charAt(0))) {
+			throw new MerchantsException();
+		}
 		
 		String key = inputArray[0].toLowerCase();
 		char value = inputArray[2].toUpperCase().charAt(0);

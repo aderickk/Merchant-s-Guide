@@ -1,5 +1,7 @@
-package merchantsNotes;
+package merchants_notes;
 import java.util.*;
+
+import merchant_other.RomanCharacterEnum;
 
 
 public class RomanCalculator {
@@ -9,13 +11,9 @@ public class RomanCalculator {
 	public static void initial() {
 		romanMap = new HashMap<Character, Integer>();
 		
-		romanMap.put('I', 1);
-		romanMap.put('V', 5);
-		romanMap.put('X', 10);
-		romanMap.put('L', 50);
-		romanMap.put('C', 100);
-		romanMap.put('D', 500);
-		romanMap.put('M', 1000);	
+		for(RomanCharacterEnum r : RomanCharacterEnum.values()) {
+			romanMap.put(r.getChar(), r.getDecimalValue());
+		}
 	}
 	
 	public static int convertRomanToDecimal(String input) {

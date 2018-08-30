@@ -7,9 +7,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import merchantsNotes.AlienDictionary;
-import merchantsNotes.MerchantsException;
-import merchantsNotes.RomanCalculator;
+import merchant_other.MerchantsException;
+import merchants_notes.AlienDictionary;
+import merchants_notes.RomanCalculator;
 
 class AlienDictionaryTest {
 	
@@ -73,8 +73,34 @@ class AlienDictionaryTest {
 	}
 	
 	@Test
-	void test_add_invalid_entry() {
+	void test_add_invalid_entry_1() {
 		String invalidEntry = "glob grok is L";
+		
+		try {
+			Assertions.assertThrows(MerchantsException.class, () -> {
+				AlienDictionary.addEntry(invalidEntry);
+			});
+		} catch (Exception e) {
+			// do nothing
+		}
+	}
+	
+	@Test
+	void test_add_invalid_entry_2() {
+		String invalidEntry = "grrr is U";
+		
+		try {
+			Assertions.assertThrows(MerchantsException.class, () -> {
+				AlienDictionary.addEntry(invalidEntry);
+			});
+		} catch (Exception e) {
+			// do nothing
+		}
+	}
+	
+	@Test
+	void test_add_invalid_entry_3() {
+		String invalidEntry = "life is free";
 		
 		try {
 			Assertions.assertThrows(MerchantsException.class, () -> {

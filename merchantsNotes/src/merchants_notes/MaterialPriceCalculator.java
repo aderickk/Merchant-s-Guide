@@ -1,7 +1,9 @@
-package merchantsNotes;
+package merchants_notes;
 
 import java.util.Arrays;
 import java.util.HashMap;
+
+import merchant_other.MerchantsException;
 
 public class MaterialPriceCalculator {
 	
