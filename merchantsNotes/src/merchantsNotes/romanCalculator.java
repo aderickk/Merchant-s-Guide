@@ -2,7 +2,7 @@ package merchantsNotes;
 import java.util.*;
 
 
-public class romanCalculator {
+public class RomanCalculator {
 
 	static HashMap<Character, Integer> romanMap;
 	

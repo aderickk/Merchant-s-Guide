@@ -5,9 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import merchantsNotes.alienDictionary;
+import merchantsNotes.AlienDictionary;
+import merchantsNotes.MerchantsException;
 
-class alienDictionaryTest {
+class AlienDictionaryTest {
 	
 	@Test
 	void test_simple_1() {
@@ -16,8 +17,8 @@ class alienDictionaryTest {
 		char result;
 		
 		try {
-			alienDictionary.addEntry(testCase);
-			result = alienDictionary.searchEntry("glob");
+			AlienDictionary.addEntry(testCase);
+			result = AlienDictionary.searchEntry("glob");
 		} catch (Exception e) {
 			result = ' ';
 		}
@@ -32,10 +33,10 @@ class alienDictionaryTest {
 		char result;
 		
 		try {
-			alienDictionary.addEntry(testCaseOri);
-			alienDictionary.addEntry(testCaseUpdated);
+			AlienDictionary.addEntry(testCaseOri);
+			AlienDictionary.addEntry(testCaseUpdated);
 			
-			result = alienDictionary.searchEntry("glob");			
+			result = AlienDictionary.searchEntry("glob");			
 		} catch (Exception e) {
 			result = ' ';
 		}
@@ -48,13 +49,13 @@ class alienDictionaryTest {
 		String invalidEntry = "grok";
 		
 		try {
-			alienDictionary.addEntry(validEntry);
+			AlienDictionary.addEntry(validEntry);
 		} catch (Exception e) {
 			// do nothing
 		}
 		
-		Assertions.assertThrows(Exception.class, () -> {
-			alienDictionary.searchEntry(invalidEntry);
+		Assertions.assertThrows(MerchantsException.class, () -> {
+			AlienDictionary.searchEntry(invalidEntry);
 		});
 	}
 	
@@ -63,8 +64,8 @@ class alienDictionaryTest {
 		String invalidEntry = "glob grok is L";
 		
 		try {
-			Assertions.assertThrows(Exception.class, () -> {
-				alienDictionary.addEntry(invalidEntry);
+			Assertions.assertThrows(MerchantsException.class, () -> {
+				AlienDictionary.addEntry(invalidEntry);
 			});
 		} catch (Exception e) {
 			// do nothing

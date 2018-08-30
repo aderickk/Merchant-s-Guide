@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import merchantsNotes.romanCalculator;
+import merchantsNotes.RomanCalculator;
 
-class romanCalculatorTest {
+class RomanCalculatorTest {
 
 	@BeforeAll
 	static void romanCalculator_setup() {
-		romanCalculator.initial();
+		RomanCalculator.initial();
 	}
 	
 	@Test
@@ -19,7 +19,7 @@ class romanCalculatorTest {
 		String testCase = "I";
 		int expectedResult = 1;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 
@@ -28,7 +28,7 @@ class romanCalculatorTest {
 		String testCase = "IV";
 		int expectedResult = 4;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 	
@@ -37,7 +37,7 @@ class romanCalculatorTest {
 		String testCase = "L";
 		int expectedResult = 50;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 	
@@ -46,7 +46,7 @@ class romanCalculatorTest {
 		String testCase = "XXIII";
 		int expectedResult = 23;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 	
@@ -55,7 +55,7 @@ class romanCalculatorTest {
 		String testCase = "XLII";
 		int expectedResult = 42;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 	
@@ -64,7 +64,7 @@ class romanCalculatorTest {
 		String testCase = "MMVI";
 		int expectedResult = 2006;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 	
@@ -73,7 +73,7 @@ class romanCalculatorTest {
 		String testCase = "MCMXLIV";
 		int expectedResult = 1944;
 		
-		int result = romanCalculator.convertRomanToDecimal(testCase);
+		int result = RomanCalculator.convertRomanToDecimal(testCase);
 		assertEquals(result, expectedResult);
 	}
 }
