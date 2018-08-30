@@ -4,11 +4,10 @@ import java.util.*;
 
 public class romanCalculator {
 
-	public static int convertRomanToDecimal(String input) {
-		int result = 0;
-		String romanInput = input.toUpperCase();
-		
-		HashMap<Character, Integer> romanMap = new HashMap<Character, Integer>();
+	static HashMap<Character, Integer> romanMap;
+	
+	public static void initial() {
+		romanMap = new HashMap<Character, Integer>();
 		
 		romanMap.put('I', 1);
 		romanMap.put('V', 5);
@@ -17,6 +16,11 @@ public class romanCalculator {
 		romanMap.put('C', 100);
 		romanMap.put('D', 500);
 		romanMap.put('M', 1000);	
+	}
+	
+	public static int convertRomanToDecimal(String input) {
+		int result = 0;
+		String romanInput = input.toUpperCase();
 		
 		for (int i=0; i < romanInput.length(); i++) {
 			if (i == (romanInput.length()-1)) {

@@ -1,12 +1,19 @@
 package merchantsNotesTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-import merchantsNotes.romanCalculator;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import merchantsNotes.romanCalculator;
 
 class romanCalculatorTest {
 
+	@BeforeAll
+	static void romanCalculator_setup() {
+		romanCalculator.initial();
+	}
+	
 	@Test
 	void test_simple_1() {
 		String testCase = "I";
