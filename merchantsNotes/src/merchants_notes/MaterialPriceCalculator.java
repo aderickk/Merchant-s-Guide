@@ -50,6 +50,10 @@ public class MaterialPriceCalculator {
 	
 	public static int getMaterialPrice(String input) throws MerchantsException {
 		String[] inputArray = input.split(" ");		
+		return getMaterialPrice(inputArray);
+	}
+	
+	public static int getMaterialPrice(String[] inputArray) throws MerchantsException {
 		int materialIndex = inputArray.length - 1;
 		String materialName = inputArray[materialIndex];
 		
