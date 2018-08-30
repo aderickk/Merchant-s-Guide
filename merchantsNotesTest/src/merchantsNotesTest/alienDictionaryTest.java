@@ -3,12 +3,25 @@ package merchantsNotesTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import merchantsNotes.AlienDictionary;
 import merchantsNotes.MerchantsException;
+import merchantsNotes.RomanCalculator;
 
 class AlienDictionaryTest {
+	
+	@BeforeAll
+	static void alien_dictionary_setup() {
+		RomanCalculator.initial();
+	}
+	
+	@BeforeEach
+	void alien_dictionary_before_each() {
+		AlienDictionary.cleanDictionary();
+	}
 	
 	@Test
 	void test_simple_1() {
@@ -70,5 +83,43 @@ class AlienDictionaryTest {
 		} catch (Exception e) {
 			// do nothing
 		}
+	}
+	
+	@Test
+	void test_convert_alien_language_to_decimal_1() {
+		String testCase = "glob glob";
+		int expectedResult = 2;
+		
+		int result = 0;
+		try {
+			AlienDictionary.addEntry("glob is I");
+			result = AlienDictionary.alienLanguageToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		} 
+		
+		assertEquals(expectedResult, result);
+	}
+	
+	@Test
+	void test_convert_alien_language_to_decimal_2() {
+		//MCMXLIV 
+		String testCase = "cih bleh cih pish tegj glob prok";
+		int expectedResult = 1944;
+		
+		int result = 0;
+		try {
+			AlienDictionary.addEntry("cih is M");
+			AlienDictionary.addEntry("bleh is C");
+			AlienDictionary.addEntry("pish is X");
+			AlienDictionary.addEntry("tegj is L");
+			AlienDictionary.addEntry("glob is I");
+			AlienDictionary.addEntry("prok is V");
+			result = AlienDictionary.alienLanguageToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		} 
+		
+		assertEquals(expectedResult, result);
 	}
 }

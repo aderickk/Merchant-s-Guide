@@ -19,6 +19,8 @@ public class RomanCalculator {
 	}
 	
 	public static int convertRomanToDecimal(String input) {
+		if (romanMap == null || romanMap.isEmpty()) initial();
+		
 		int result = 0;
 		String romanInput = input.toUpperCase();
 		

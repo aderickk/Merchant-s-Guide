@@ -6,6 +6,10 @@ public class AlienDictionary {
 
 	private static HashMap<String, Character> aDictionary;
 	
+	public static void cleanDictionary() {
+		if (aDictionary != null) aDictionary.clear();
+	}
+	
 	public static void addEntry(String input) throws MerchantsException {
 		if (aDictionary == null) aDictionary = new  HashMap<String, Character>();
 		
@@ -25,5 +29,22 @@ public class AlienDictionary {
 		char result = aDictionary.get(entry);
 		
 		return result;
+	}
+	
+	public static int alienLanguageToDecimal(String input) throws MerchantsException{
+		String[] inputArray = input.split(" ");
+		return alienLanguageToDecimal(inputArray);
+	}
+	
+	public static int alienLanguageToDecimal(String[] input) throws MerchantsException{
+		StringBuilder romanString = new StringBuilder();
+		for (int i=0; i < input.length; i++) {
+			char c = AlienDictionary.searchEntry(input[i]);
+			romanString.append(c);
+		}
+		
+		int decimalValue = RomanCalculator.convertRomanToDecimal(romanString.toString());
+		
+		return decimalValue;
 	}
 }
