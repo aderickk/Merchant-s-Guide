@@ -1,6 +1,7 @@
 package merchants_notes;
 import java.util.*;
 
+import merchant_other.ErrorTypeEnum;
 import merchant_other.MerchantsException;
 import merchant_other.RomanCharacterEnum;
 import merchant_other.RomanValidator;
@@ -29,7 +30,7 @@ public class RomanCalculator {
 		int result = 0;
 		String romanInput = input.toUpperCase();
 		
-		if (!RomanValidator.isValidRepetition(romanInput)) throw new MerchantsException(input);
+		if (!RomanValidator.isValidRepetition(romanInput)) throw new MerchantsException(ErrorTypeEnum.RomanCalculator, input);
 		
 		for (int i=0; i < romanInput.length(); i++) {
 			if (i == (romanInput.length()-1)) {
@@ -44,7 +45,7 @@ public class RomanCalculator {
 					// But only if they are a valid subtraction.
 					
 					if(!RomanValidator.isValidSubtraction(romanInput.charAt(i), romanInput.charAt(i+1))){
-						throw new MerchantsException(input);
+						throw new MerchantsException(ErrorTypeEnum.RomanCalculator, input);
 					}
 					
 					result += (nextValue - currValue);

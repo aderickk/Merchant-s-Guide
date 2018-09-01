@@ -1,6 +1,7 @@
 package merchants_notes;
 
 import java.util.Arrays;
+import java.util.List;
 
 import merchant_other.MerchantsException;
 import merchant_other.NotesCategory;
@@ -9,6 +10,20 @@ public class MenuFilterer {
 
 	public MenuFilterer() {
 		RomanCalculator.initial();
+	}
+	
+	public void handleReadFiles(String input) throws MerchantsException{
+		String filePath = MerchantFileReader.getFilePathFromQuery(input);
+		List<String> fileReadResult = MerchantFileReader.readFile(filePath);
+		
+		for(String s : fileReadResult) {
+			try {
+				System.out.println(s);
+				this.filter(s);
+			} catch(MerchantsException ex) {
+				// Do nothing
+			}
+		}
 	}
 	
 	public void filter(String input) throws MerchantsException {

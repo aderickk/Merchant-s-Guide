@@ -10,7 +10,14 @@ public class MerchantsException extends Exception {
 		System.out.println("I don't know what you're talking about.");	
 	}
 	
-	public MerchantsException(String x) {
-		System.out.println("Invalid Roman Numerals " + x );	
+	public MerchantsException(ErrorTypeEnum errType, String x) {
+		switch (errType) {
+			case RomanCalculator:
+				System.out.println("Invalid Roman Numerals " + x );		
+				break;
+			case FileReading:
+				System.out.println("Failed to read files. Please provide correct format or file.");		
+				break;
+		}			
 	}
 }
