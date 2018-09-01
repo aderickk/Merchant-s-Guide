@@ -5,6 +5,12 @@ import java.util.HashMap;
 import merchant_other.MerchantsException;
 import merchant_other.RomanCharacterEnum;
 
+/**
+ * @author Aderick
+ *
+ * Responsible for handling known alien language and its meaning.
+ *
+ */
 public class AlienDictionary {
 
 	private static HashMap<String, Character> aDictionary;
@@ -13,6 +19,12 @@ public class AlienDictionary {
 		if (aDictionary != null) aDictionary.clear();
 	}
 	
+	/**
+	 * Add new known alien word.
+	 * 
+	 * @param input
+	 * @throws MerchantsException
+	 */
 	public static void addEntry(String input) throws MerchantsException {
 		if (aDictionary == null) aDictionary = new  HashMap<String, Character>();
 		
@@ -30,6 +42,13 @@ public class AlienDictionary {
 		aDictionary.put(key, value);		
 	}
 	
+	/**
+	 * Search the meaning of an alien word.
+	 * 
+	 * @param entry
+	 * @return
+	 * @throws MerchantsException
+	 */
 	public static char searchEntry(String entry) throws MerchantsException {
 		if (aDictionary == null || !aDictionary.containsKey(entry)) throw new MerchantsException();
 		
@@ -38,11 +57,25 @@ public class AlienDictionary {
 		return result;
 	}
 	
+	/**
+	 * Get the decimal value of an alien sentence.
+	 * 
+	 * @param input
+	 * @return
+	 * @throws MerchantsException
+	 */
 	public static int alienLanguageToDecimal(String input) throws MerchantsException{
 		String[] inputArray = input.split(" ");
 		return alienLanguageToDecimal(inputArray);
 	}
 	
+	/**
+	 * Get the decimal value of an alien sentence.
+	 * 
+	 * @param input
+	 * @return
+	 * @throws MerchantsException
+	 */
 	public static int alienLanguageToDecimal(String[] input) throws MerchantsException{
 		StringBuilder romanString = new StringBuilder();
 		for (int i=0; i < input.length; i++) {

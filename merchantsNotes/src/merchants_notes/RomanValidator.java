@@ -1,5 +1,10 @@
-package merchant_other;
+package merchants_notes;
 
+/**
+ * @author Aderick
+ *
+ *	Responsible to validates whether a roman numeral is valid.
+ */
 public class RomanValidator {
 	private enum ValidRepetition {
 		I('I'), X('X'), C('C'), M('M');
@@ -29,6 +34,7 @@ public class RomanValidator {
 	};	
 		
 	private static boolean isRepetitionMember(char curr) {
+		// If the character exist in Valid Repetition list, then it's okay to repeat those character. 
 		for (ValidRepetition vr : ValidRepetition.values()) {
 			if (curr == vr.getChar()) return true;
 		}
@@ -36,6 +42,14 @@ public class RomanValidator {
 		return false;
 	}
 	
+	/**
+	 * Validate whether a subtraction in roman numeral is valid. If two character exist in
+	 * Valid Subtraction list, then it's valid.
+	 * 
+	 * @param curr
+	 * @param next
+	 * @return
+	 */
 	public static boolean isValidSubtraction(char curr, char next) {
 		StringBuilder str = new StringBuilder();
 		str.append(curr);
@@ -48,7 +62,7 @@ public class RomanValidator {
 	}
 	
 	/**
-	 * Check if the string contains illegal Roman number.
+	 * Check if the string contains illegal Roman number repetition.
 	 * 
 	 * @param input
 	 * @return

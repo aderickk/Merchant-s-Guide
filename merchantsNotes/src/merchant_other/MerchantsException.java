@@ -1,5 +1,10 @@
 package merchant_other;
 
+/**
+ * @author Aderick
+ *
+ *	General exception used throughout the application.
+ */
 public class MerchantsException extends Exception {
 	/**
 	 * 

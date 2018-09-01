@@ -4,9 +4,13 @@ import java.util.*;
 import merchant_other.ErrorTypeEnum;
 import merchant_other.MerchantsException;
 import merchant_other.RomanCharacterEnum;
-import merchant_other.RomanValidator;
 
 
+/**
+ * @author Aderick
+ *
+ *	Converts Roman Numeral into decimal.
+ */
 public class RomanCalculator {
 
 	static HashMap<Character, Integer> romanMap;
@@ -20,6 +24,8 @@ public class RomanCalculator {
 	}
 	
 	/**
+	 * Give decimal value of a Roman number.
+	 * 
 	 * @param input
 	 * @return
 	 * @throws MerchantsException

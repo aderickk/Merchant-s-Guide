@@ -12,6 +12,13 @@ public class MenuFilterer {
 		RomanCalculator.initial();
 	}
 	
+	/**
+	 * Handle file and read every lines. Filter every line in
+	 * the file using #{@function MenuFilterer.filter}.
+	 * 
+	 * @param input
+	 * @throws MerchantsException
+	 */
 	public void handleReadFiles(String input) throws MerchantsException{
 		String filePath = MerchantFileReader.getFilePathFromQuery(input);
 		List<String> fileReadResult = MerchantFileReader.readFile(filePath);
@@ -26,6 +33,12 @@ public class MenuFilterer {
 		}
 	}
 	
+	/**
+	 * Filter a sentence and execute corresponding function according to the sentence's category. 
+	 * 
+	 * @param input
+	 * @throws MerchantsException
+	 */
 	public void filter(String input) throws MerchantsException {
 		NotesCategory nc = categorizeSentence(input);
 		
@@ -61,6 +74,12 @@ public class MenuFilterer {
 		}
 	}
 	
+	/**
+	 * Determine which category a sentence belong to. 
+	 * 
+	 * @param input
+	 * @return
+	 */
 	private NotesCategory categorizeSentence(String input) {
 		String[] inputArray = input.split(" ");
 		
@@ -110,6 +129,13 @@ public class MenuFilterer {
 		return -1;
 	}
 	
+	/**
+	 * Print the answer format for every question.
+	 * 
+	 * @param questionFormat
+	 * @param result
+	 * @param isWithCredit
+	 */
 	private void printResult(String[] questionFormat, int result, boolean isWithCredit) {
 		StringBuilder sb = new StringBuilder();
 		for(String s : questionFormat) {

@@ -5,6 +5,11 @@ import java.util.HashMap;
 
 import merchant_other.MerchantsException;
 
+/**
+ * @author Aderick
+ *
+ *	Responsible for handling known price of a material. as well as give the price of alien language of a material.
+ */
 public class MaterialPriceCalculator {
 	
 	static HashMap<String, Double> materialPriceList;
@@ -13,6 +18,12 @@ public class MaterialPriceCalculator {
 		if (materialPriceList != null) materialPriceList.clear();
 	}
 	
+	/**
+	 * Add new known Material price.
+	 * 
+	 * @param input
+	 * @throws MerchantsException
+	 */
 	public static void addEntry(String input) throws MerchantsException{
 		String[] inputArray = input.split(" ");
 		
@@ -48,11 +59,25 @@ public class MaterialPriceCalculator {
 		materialPriceList.put(key, individualPrice);		
 	}
 	
+	/**
+	 * Get the price of Material at the amount of 'x'. 
+	 * 
+	 * @param input	alien language of asked material.
+	 * @return
+	 * @throws MerchantsException
+	 */
 	public static int getMaterialPrice(String input) throws MerchantsException {
 		String[] inputArray = input.split(" ");		
 		return getMaterialPrice(inputArray);
 	}
 	
+	/**
+	 * Get the price of Material at the amount of 'x'. 
+	 * 
+	 * @param input	alien language of asked material.
+	 * @return
+	 * @throws MerchantsException
+	 */
 	public static int getMaterialPrice(String[] inputArray) throws MerchantsException {
 		int materialIndex = inputArray.length - 1;
 		String materialName = inputArray[materialIndex];
