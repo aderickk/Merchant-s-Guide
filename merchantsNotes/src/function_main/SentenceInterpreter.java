@@ -1,14 +1,23 @@
-package merchants_notes;
+package function_main;
 
 import java.util.Arrays;
 import java.util.List;
 
-import merchant_other.MerchantsException;
-import merchant_other.NotesCategory;
+import extras.MerchantsException;
+import extras.NotesCategory;
+import function_support.MerchantFileReader;
+import function_support.RomanCalculator;
 
-public class MenuFilterer {
+/**
+ * @author Aderick
+ *
+ *	Responsible for Interpreting sentence(s) and run corresponding function according
+ *	to its interpretation. 
+ *
+ */
+public class SentenceInterpreter {
 
-	public MenuFilterer() {
+	public SentenceInterpreter() {
 		RomanCalculator.initial();
 	}
 	

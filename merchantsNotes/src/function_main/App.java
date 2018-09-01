@@ -1,19 +1,19 @@
-package merchants_notes;
+package function_main;
 
 import java.util.Scanner;
 
-import merchant_other.MerchantsException;
+import extras.MerchantsException;
 
 /**
  * @author Aderick
  *
  *	Main class of the application.
  */
-public class MerchantsNotes {
+public class App {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		MenuFilterer mf = new MenuFilterer();
+		SentenceInterpreter mf = new SentenceInterpreter();
 		
 		System.out.println("======== Merchants Notes To The Galaxy ========");
 		System.out.println("== User Help: Use \"LOAD 'File path'\" to load a file ==");

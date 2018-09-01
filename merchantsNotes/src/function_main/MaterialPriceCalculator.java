@@ -1,9 +1,9 @@
-package merchants_notes;
+package function_main;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import merchant_other.MerchantsException;
+import extras.MerchantsException;
 
 /**
  * @author Aderick

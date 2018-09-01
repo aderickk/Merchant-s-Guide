@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import merchant_other.MerchantsException;
-import merchants_notes.RomanCalculator;
+import extras.MerchantsException;
+import function_support.RomanCalculator;
 
 class RomanCalculatorTest {
 

@@ -1,4 +1,4 @@
-package merchant_other;
+package extras;
 
 public enum NotesCategory {
 	AlienDictionaryEntry,

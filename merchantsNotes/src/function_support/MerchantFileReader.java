@@ -1,4 +1,4 @@
-package merchants_notes;
+package function_support;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import merchant_other.ErrorTypeEnum;
-import merchant_other.MerchantsException;
+import extras.ErrorTypeEnum;
+import extras.MerchantsException;
 
 /**
  * @author Aderick

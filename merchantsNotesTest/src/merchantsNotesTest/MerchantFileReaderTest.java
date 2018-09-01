@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import merchants_notes.MerchantFileReader;
+import function_support.MerchantFileReader;
 
 class MerchantFileReaderTest {
 

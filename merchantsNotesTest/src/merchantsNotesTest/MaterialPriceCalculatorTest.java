@@ -8,10 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import merchant_other.MerchantsException;
-import merchants_notes.AlienDictionary;
-import merchants_notes.MaterialPriceCalculator;
-import merchants_notes.RomanCalculator;
+import extras.MerchantsException;
+import function_main.AlienDictionary;
+import function_main.MaterialPriceCalculator;
+import function_support.RomanCalculator;
 
 class MaterialPriceCalculatorTest {
 

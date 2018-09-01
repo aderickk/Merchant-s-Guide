@@ -10,22 +10,22 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import merchant_other.MerchantsException;
-import merchants_notes.AlienDictionary;
-import merchants_notes.MaterialPriceCalculator;
-import merchants_notes.MenuFilterer;
+import extras.MerchantsException;
+import function_main.AlienDictionary;
+import function_main.MaterialPriceCalculator;
+import function_main.SentenceInterpreter;
 
-class MenuFiltererTest {
+class SentenceInterpreterTest {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final PrintStream originalOut = System.out;
 	private final String standardErrMessage = "I don't know what you're talking about.\r\n";
 	
-	static MenuFilterer mf;
+	static SentenceInterpreter mf;
 	
 	@BeforeAll
 	static void menuFiltererTest_before_all() {
-		mf = new MenuFilterer();
+		mf = new SentenceInterpreter();
 	}
 	
 	@BeforeEach
