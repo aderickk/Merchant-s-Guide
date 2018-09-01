@@ -8,5 +8,9 @@ public class MerchantsException extends Exception {
 
 	public MerchantsException() {
 		System.out.println("I don't know what you're talking about.");	
-	}	
+	}
+	
+	public MerchantsException(String x) {
+		System.out.println("Invalid Roman Numerals " + x );	
+	}
 }

@@ -1,10 +1,12 @@
 package merchantsNotesTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import merchant_other.MerchantsException;
 import merchants_notes.RomanCalculator;
 
 class RomanCalculatorTest {
@@ -19,7 +21,12 @@ class RomanCalculatorTest {
 		String testCase = "I";
 		int expectedResult = 1;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 
@@ -28,7 +35,12 @@ class RomanCalculatorTest {
 		String testCase = "IV";
 		int expectedResult = 4;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 	
@@ -37,7 +49,12 @@ class RomanCalculatorTest {
 		String testCase = "L";
 		int expectedResult = 50;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 	
@@ -46,7 +63,12 @@ class RomanCalculatorTest {
 		String testCase = "XXIII";
 		int expectedResult = 23;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 	
@@ -55,7 +77,12 @@ class RomanCalculatorTest {
 		String testCase = "XLII";
 		int expectedResult = 42;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 	
@@ -64,7 +91,12 @@ class RomanCalculatorTest {
 		String testCase = "MMVI";
 		int expectedResult = 2006;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
 	}
 	
@@ -73,7 +105,124 @@ class RomanCalculatorTest {
 		String testCase = "MCMXLIV";
 		int expectedResult = 1944;
 		
-		int result = RomanCalculator.convertRomanToDecimal(testCase);
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
 		assertEquals(result, expectedResult);
+	}
+	
+	@Test
+	void test_long_roman_number_1() {
+		String testCase = "MDCCCLXXXVIII";
+		int expectedResult = 1888;
+		
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
+		assertEquals(result, expectedResult);
+	}
+	
+	@Test
+	void test_long_roman_number_2() {
+		String testCase = "MMMDCCCLXXXVIII";
+		int expectedResult = 3888;
+		
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
+		assertEquals(result, expectedResult);
+	}
+	
+	@Test
+	void test_largest_roman_number() {
+		String testCase = "MMMCMXCIX";
+		int expectedResult = 3999;
+		
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
+		assertEquals(result, expectedResult);
+	}
+	
+	@Test
+	void test_invalid_roman_repetitions_1() {
+		String testCase = "XXXX";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_invalid_roman_repetitions_2() {
+		String testCase = "MMMCCCC";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_invalid_roman_repetitions_3() {
+		String testCase = "VV";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_invalid_roman_repetitions_4() {
+		String testCase = "MMMDDXXX";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_valid_roman_repetitions_1() {
+		String testCase = "XXXIX";		
+		int expectedResult = 39;
+		
+		int result = 0;
+		try {
+			result = RomanCalculator.convertRomanToDecimal(testCase);
+		} catch (MerchantsException e) {
+			// do nothing
+		}
+		assertEquals(result, expectedResult);
+	}
+	
+	@Test
+	void test_invalid_roman_subtraction_1() {
+		String testCase = "VL";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_invalid_roman_subtraction_2() {
+		String testCase = "IM";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
+	}
+	
+	@Test
+	void test_invalid_roman_subtraction_3() {
+		String testCase = "DM";
+		
+		assertThrows(MerchantsException.class, 
+				() -> RomanCalculator.convertRomanToDecimal(testCase));
 	}
 }

@@ -1,7 +1,9 @@
 package merchants_notes;
 import java.util.*;
 
+import merchant_other.MerchantsException;
 import merchant_other.RomanCharacterEnum;
+import merchant_other.RomanValidator;
 
 
 public class RomanCalculator {
@@ -16,11 +18,18 @@ public class RomanCalculator {
 		}
 	}
 	
-	public static int convertRomanToDecimal(String input) {
+	/**
+	 * @param input
+	 * @return
+	 * @throws MerchantsException
+	 */
+	public static int convertRomanToDecimal(String input) throws MerchantsException {
 		if (romanMap == null || romanMap.isEmpty()) initial();
 		
 		int result = 0;
 		String romanInput = input.toUpperCase();
+		
+		if (!RomanValidator.isValidRepetition(romanInput)) throw new MerchantsException(input);
 		
 		for (int i=0; i < romanInput.length(); i++) {
 			if (i == (romanInput.length()-1)) {
@@ -31,7 +40,13 @@ public class RomanCalculator {
 				int nextValue = romanMap.get(romanInput.charAt(i + 1));
 				
 				if (currValue < nextValue) {
-					// If the next char is bigger than current value, decrease them.  
+					// If the next char is bigger than current value, decrease them.
+					// But only if they are a valid subtraction.
+					
+					if(!RomanValidator.isValidSubtraction(romanInput.charAt(i), romanInput.charAt(i+1))){
+						throw new MerchantsException(input);
+					}
+					
 					result += (nextValue - currValue);
 					i++;
 				} else {
