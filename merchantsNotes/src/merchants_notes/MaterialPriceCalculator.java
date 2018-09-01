@@ -7,7 +7,7 @@ import merchant_other.MerchantsException;
 
 public class MaterialPriceCalculator {
 	
-	static HashMap<String, Integer> materialPriceList;
+	static HashMap<String, Double> materialPriceList;
 	
 	public static void cleanMaterialPriceList() {
 		if (materialPriceList != null) materialPriceList.clear();
@@ -38,13 +38,13 @@ public class MaterialPriceCalculator {
 		// Get individual value.
 		String[] alienString = Arrays.copyOf(inputArray, materialIndex);		
 		int decimalValue = AlienDictionary.alienLanguageToDecimal(alienString);
-		int overallPrice = Integer.parseInt(inputArray[materialIndex+2]);
-		int individualPrice = overallPrice / decimalValue;
+		double overallPrice = Integer.parseInt(inputArray[materialIndex+2]);
+		double individualPrice = overallPrice / decimalValue;
 		
 		// Add the material to hashmap.
 		String key = inputArray[materialIndex];
 		
-		if (materialPriceList == null) materialPriceList = new HashMap<String, Integer>();
+		if (materialPriceList == null) materialPriceList = new HashMap<String, Double>();
 		materialPriceList.put(key, individualPrice);		
 	}
 	
@@ -66,8 +66,8 @@ public class MaterialPriceCalculator {
 		String[] alienString = Arrays.copyOf(inputArray, materialIndex);		
 		int decimalValue = AlienDictionary.alienLanguageToDecimal(alienString);
 		
-		int individualPrice = materialPriceList.get(inputArray[materialIndex]);
+		double individualPrice = materialPriceList.get(inputArray[materialIndex]);
 		
-		return (individualPrice * decimalValue);
+		return (int)(individualPrice * decimalValue);
 	}
 }

@@ -87,4 +87,38 @@ class MaterialPriceCalculatorTest {
 		
 		assertEquals(expectedResult, result);
 	}
+	
+	@Test
+	void test_get_material_price_double_1() {
+		String entry = "pish pish Iron is 3910 Credits";
+		String testCase = "glob prok Iron";
+		int expectedResult = 782;
+		int result = 0;
+		
+		try {
+			MaterialPriceCalculator.addEntry(entry);
+			result = MaterialPriceCalculator.getMaterialPrice(testCase);
+		} catch(Exception e) {
+			// Do nothing
+		}
+		
+		assertEquals(expectedResult, result);
+	}
+	
+	@Test
+	void test_get_material_price_double_2() {
+		String entry = "pish Gold is 12 Credits";
+		String testCase = "prok Gold";
+		int expectedResult = 6;
+		int result = 0;
+		
+		try {
+			MaterialPriceCalculator.addEntry(entry);
+			result = MaterialPriceCalculator.getMaterialPrice(testCase);
+		} catch(Exception e) {
+			// Do nothing
+		}
+		
+		assertEquals(expectedResult, result);
+	}
 }

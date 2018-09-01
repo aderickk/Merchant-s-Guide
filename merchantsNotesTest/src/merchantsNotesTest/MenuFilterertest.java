@@ -280,7 +280,7 @@ class MenuFiltererTest {
 		assertEquals(expectedResult, outContent.toString());
 	}
 	
-	/*@Test
+	@Test
 	void test_ALL_functions() {
 		String entry1 = "glob is I";
 		String entry2 = "prok is V";
@@ -300,7 +300,7 @@ class MenuFiltererTest {
 		String expectedResult2 = "glob prok Silver is 68 Credits\r\n";
 		String expectedResult3 = "glob prok Gold is 57800 Credits\r\n";
 		String expectedResult4 = "glob prok Iron is 782 Credits\r\n";
-		String expectedResult5 = "I don't know what you are talking about\r\n";
+		String expectedResult5 = "I don't know what you're talking about.\r\n";
 		
 		StringBuilder expectedResult = new StringBuilder();
 		expectedResult.append(expectedResult1);
@@ -327,5 +327,5 @@ class MenuFiltererTest {
 		}
 		
 		assertEquals(expectedResult.toString(), outContent.toString());
-	}*/
+	}
 }

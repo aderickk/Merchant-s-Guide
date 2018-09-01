@@ -10,15 +10,21 @@ public class MerchantsNotes {
 		Scanner scanner = new Scanner(System.in);
 		MenuFilterer mf = new MenuFilterer();
 		String inputString = "";
+		String exitCommand = "exit";
 		
 		do {
 			inputString = scanner.nextLine();
 			try {
-				mf.filter(inputString);
+				if (!inputString.toLowerCase().equals(exitCommand)) {
+					mf.filter(inputString);	
+				}				
 			} catch (MerchantsException e) {
 				// Do nothing.
 			}
-		} while (!inputString.equals("exit"));
+		} while (!inputString.equals(exitCommand));
+		
+		System.out.println("Goodbye!");
+		scanner.close();
 	}
 
 }
